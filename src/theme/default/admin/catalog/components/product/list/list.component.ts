@@ -140,7 +140,27 @@ export class ProductListComponent implements OnInit {
   updateProduct(productId) {
     this.router.navigate(['/catalog/product/edit', productId]);
   }
+  /**
+   * Handles  'onFilterChange' event. Calls productSandbox productIsFeature function if FeatureValu is true,
+   * else calls productSandbox productIsFeature
+   *
+   * @param event and prodinfo form onFilterChange input.
+   *
+   */
+  onFilterChange(event: any, prodinfo) {
+    const params: any = {};
+    params.productId = prodinfo.productId;
+    const FeatureValue = event.target.checked;
+    if (FeatureValue === true) {
+      params.isFeature = '1';
 
+      this.productSandbox.productIsFeature(params);
+    } else {
+      params.isFeature = '0';
+
+      this.productSandbox.productIsFeature(params);
+    }
+  }
   // receive param from filter component .And calls paginations event
   receiveProgress(event) {
     this.index = 0;

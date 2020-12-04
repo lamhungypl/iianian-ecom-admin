@@ -103,7 +103,9 @@
             <th scope="col">Image</th>
             <th scope="col">Sku</th>
             <th scope="col" width="20%">Product Name</th>
+            <th scope="col">Quantity</th>
             <th scope="col">Price</th>
+            <th scope="col" width="100px">Is Feature</th>
             <th scope="col" width="100px">Today Deals</th>
             <th scope="col">Action</th>
           </tr>
@@ -159,7 +161,24 @@
             <td style="cursor: pointer" (click)="updateProduct(product.productId)">{{ product.name }}</td>
 
             <!-- <td style="cursor: pointer" (click)="updateProduct(product.productId)">{{product.quantity}}</td> -->
-            <td style="cursor: pointer" (click)="updateProduct(product.productId)">$ {{ product.price }}</td>
+            <td style="cursor: pointer" (click)="updateProduct(product.productId)">
+              {{ product.quantity }}
+            </td>
+            <td style="cursor: pointer" (click)="updateProduct(product.productId)">
+              {{ product.price | currency: 'VND':'symbol-narrow' }}
+            </td>
+            <td>
+              <div class="toggle">
+                <input
+                  class="tgl tgl-light"
+                  id="{{ i }}"
+                  [(ngModel)]="product.isFeatured"
+                  (change)="onFilterChange($event, product)"
+                  type="checkbox"
+                />
+                <label class="tgl-btn" for="{{ i }}"></label>
+              </div>
+            </td>
             <td>
               <div class="toggle">
                 <input
