@@ -245,7 +245,7 @@ export class ProductAddComponent implements OnInit, OnDestroy {
   getStockStausList() {
     const params: any = {};
     params.limit = 0;
-    params.offset = 100;
+    params.offset = 0;
     params.keyword = '';
     params.status = '1';
     this.stockStatusSandbox.stockStatusList(params);
