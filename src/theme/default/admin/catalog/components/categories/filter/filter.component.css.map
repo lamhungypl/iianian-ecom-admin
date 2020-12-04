@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,IAAI,CAAC;EACH,UAAU,EAAE,kBAAkB;CAC/B",
+    "sources": [
+        "filter.component.scss"
+    ],
+    "names": [],
+    "file": "filter.component.css"
+}

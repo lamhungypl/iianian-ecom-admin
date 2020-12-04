@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,gBAAgB,CAAC;EACb,OAAO,EAAE,OAAO;CACnB;;AAED,AAAA,uBAAuB,CAAC;EACpB,UAAU,EAAE,cAAc;CAC7B",
+    "sources": [
+        "personalize-product.scss"
+    ],
+    "names": [],
+    "file": "personalize-product.css"
+}

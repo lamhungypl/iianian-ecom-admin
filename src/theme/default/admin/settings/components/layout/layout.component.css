@@ -1,0 +1,14 @@
+.sidebar_menu:focus {
+  color: #f2086d;
+  background: white;
+}
+
+.sidebar_menu:hover:active {
+  color: #f2086d;
+  background: white;
+}
+
+.mat-menu-item {
+  outline: none !important;
+}
+/*# sourceMappingURL=layout.component.css.map */

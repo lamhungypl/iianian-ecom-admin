@@ -1,0 +1,672 @@
+/*******************************/
+/*******************************/
+/*Theme Colors*/
+/*Topbar Colors*/
+/*Sidebar Colors*/
+/*Boxed layout width*/
+/*Shadow*/
+/*transitions*/
+/*Dark transparent bg*/
+/*******************************/
+/*******************************/
+/**
+ * Table Of Content
+ *
+ *  1. Color system
+ *  2. Options
+ *  3. Body
+ *  4. Typography
+ *  5. Breadcrumbs
+ *  6. Cards
+ *  7. Dropdowns
+ *  8. Buttons
+ *  9. Typography
+ *  10. Progress bars
+ *  11. Tables
+ *  12. Forms
+ *  14. Component
+ */
+.campaign {
+  position: relative;
+  height: 250px;
+}
+
+.campaign .ct-series-a .ct-area {
+  fill-opacity: 0.2;
+  fill: url(#gradient);
+}
+
+.campaign .ct-series-a .ct-line,
+.campaign .ct-series-a .ct-point {
+  stroke: #002db2;
+  stroke-width: 2px;
+}
+
+.campaign .ct-series-b .ct-area {
+  fill: #4fc3f7;
+  fill-opacity: 0.1;
+}
+
+.campaign .ct-series-b .ct-line,
+.campaign .ct-series-b .ct-point {
+  stroke: #4fc3f7;
+  stroke-width: 2px;
+}
+
+.campaign .ct-series-a .ct-point,
+.campaign .ct-series-b .ct-point {
+  stroke-width: 6px;
+}
+
+/*******************************/
+/*******************************/
+/*Theme Colors*/
+/*Topbar Colors*/
+/*Sidebar Colors*/
+/*Boxed layout width*/
+/*Shadow*/
+/*transitions*/
+/*Dark transparent bg*/
+/*******************************/
+/*******************************/
+/**
+ * Table Of Content
+ *
+ *  1. Color system
+ *  2. Options
+ *  3. Body
+ *  4. Typography
+ *  5. Breadcrumbs
+ *  6. Cards
+ *  7. Dropdowns
+ *  8. Buttons
+ *  9. Typography
+ *  10. Progress bars
+ *  11. Tables
+ *  12. Forms
+ *  14. Component
+ */
+/*******************
+ Campaign
+*******************/
+.earningsbox .c3-line {
+  stroke-width: 2px;
+}
+
+.product-sales.c3 line,
+.product-sales.c3 path {
+  stroke: #eee;
+}
+
+.product-sales .c3-shape {
+  stroke: #fff !important;
+  stroke-width: 3px;
+}
+
+/*******************************/
+/*******************************/
+/*Theme Colors*/
+/*Topbar Colors*/
+/*Sidebar Colors*/
+/*Boxed layout width*/
+/*Shadow*/
+/*transitions*/
+/*Dark transparent bg*/
+/*******************************/
+/*******************************/
+/**
+ * Table Of Content
+ *
+ *  1. Color system
+ *  2. Options
+ *  3. Body
+ *  4. Typography
+ *  5. Breadcrumbs
+ *  6. Cards
+ *  7. Dropdowns
+ *  8. Buttons
+ *  9. Typography
+ *  10. Progress bars
+ *  11. Tables
+ *  12. Forms
+ *  14. Component
+ */
+/*******************
+ Campaign
+*******************/
+.e-campaign .css-bar .data-text {
+  margin: 0 auto;
+  position: absolute;
+  left: 0;
+  z-index: 200;
+  right: 0;
+  top: 70px;
+  text-align: center;
+}
+
+.e-campaign .css-bar .data-text .success-rate {
+  font-size: 60px;
+}
+
+.e-campaign .css-bar .data-text .rate-label {
+  margin-top: -20px;
+}
+
+.e-campaign .c-cost {
+  padding: 10px 20px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+
+.e-campaign .c-cost i {
+  font-size: 48px;
+}
+
+@media (max-width: 767px) {
+  .e-campaign .c-cost {
+    margin: 0 auto;
+    width: 100%;
+  }
+  .e-campaign .stats {
+    text-align: center;
+  }
+}
+
+.css-bar-xlg {
+  width: 223px;
+  height: 223px;
+  font-size: 20px;
+}
+
+.css-bar-xlg:after,
+.css-bar-xlg > img {
+  width: 213px;
+  height: 213px;
+  margin-left: 5px;
+  margin-top: 5px;
+  line-height: 30px;
+}
+
+/*******************************/
+/*******************************/
+/*Theme Colors*/
+/*Topbar Colors*/
+/*Sidebar Colors*/
+/*Boxed layout width*/
+/*Shadow*/
+/*transitions*/
+/*Dark transparent bg*/
+/*******************************/
+/*******************************/
+/**
+ * Table Of Content
+ *
+ *  1. Color system
+ *  2. Options
+ *  3. Body
+ *  4. Typography
+ *  5. Breadcrumbs
+ *  6. Cards
+ *  7. Dropdowns
+ *  8. Buttons
+ *  9. Typography
+ *  10. Progress bars
+ *  11. Tables
+ *  12. Forms
+ *  14. Component
+ */
+.gredient-info-bg {
+  background: -webkit-gradient(linear, left top, right top, from(#41a6f6), to(#425be0));
+  background: linear-gradient(to right, #41a6f6 0%, #425be0 100%);
+}
+
+.product-sales .c3-shape {
+  stroke: transparent !important;
+  stroke-width: 3px;
+}
+
+/*******************
+Earnings
+*******************/
+.earnings {
+  position: relative;
+  height: 250px;
+}
+
+.earnings .ct-series-a .ct-area {
+  fill-opacity: 0.2;
+  fill: url(#gradient);
+}
+
+.earnings .ct-series-a .ct-line,
+.earnings .ct-series-a .ct-point {
+  stroke: #002db2;
+  stroke-width: 2px;
+}
+
+.earnings .ct-series-b .ct-area {
+  fill: #4fc3f7;
+  fill-opacity: 0.1;
+}
+
+.earnings .ct-series-b .ct-line,
+.earnings .ct-series-b .ct-point {
+  stroke: #4fc3f7;
+  stroke-width: 2px;
+}
+
+.earnings .ct-series-a .ct-point,
+.earnings .ct-series-b .ct-point {
+  stroke-width: 6px;
+}
+
+.ct-grid {
+  stroke-width: 0.3px;
+  stroke-dasharray: 0px;
+}
+
+.ct-series-a .ct-bar {
+  stroke: #002db2;
+}
+
+@media (max-width: 1023px) {
+  .gredient-info-bg .info {
+    margin-top: 15px;
+  }
+}
+
+/*******************************/
+/*******************************/
+/*Theme Colors*/
+/*Topbar Colors*/
+/*Sidebar Colors*/
+/*Boxed layout width*/
+/*Shadow*/
+/*transitions*/
+/*Dark transparent bg*/
+/*******************************/
+/*******************************/
+/**
+ * Table Of Content
+ *
+ *  1. Color system
+ *  2. Options
+ *  3. Body
+ *  4. Typography
+ *  5. Breadcrumbs
+ *  6. Cards
+ *  7. Dropdowns
+ *  8. Buttons
+ *  9. Typography
+ *  10. Progress bars
+ *  11. Tables
+ *  12. Forms
+ *  14. Component
+ */
+.ct-series-a .ct-bar {
+  stroke: #002db2;
+}
+
+.ct-series-b .ct-bar {
+  stroke: #4fc3f7;
+}
+
+@media (max-width: 767px) {
+  .ct-bar {
+    stroke-width: 10px !important;
+  }
+}
+
+/*******************************/
+/*******************************/
+/*Theme Colors*/
+/*Topbar Colors*/
+/*Sidebar Colors*/
+/*Boxed layout width*/
+/*Shadow*/
+/*transitions*/
+/*Dark transparent bg*/
+/*******************************/
+/*******************************/
+/**
+ * Table Of Content
+ *
+ *  1. Color system
+ *  2. Options
+ *  3. Body
+ *  4. Typography
+ *  5. Breadcrumbs
+ *  6. Cards
+ *  7. Dropdowns
+ *  8. Buttons
+ *  9. Typography
+ *  10. Progress bars
+ *  11. Tables
+ *  12. Forms
+ *  14. Component
+ */
+.auth-wrapper {
+  min-height: 100vh;
+  position: relative;
+}
+
+.auth-wrapper .logo-left {
+  position: fixed;
+  width: 50%;
+  height: 100%;
+  top: 0%;
+  left: 0%;
+  text-align: center;
+  padding: 40px;
+  background: url(../../assets/img/login-left-bg.png) no-repeat;
+  background-size: cover;
+}
+
+.auth-wrapper .logo-left h3 {
+  font-size: 32px;
+  font-weight: 500;
+  color: white;
+  position: relative;
+  top: 30%;
+  text-transform: uppercase;
+}
+
+.auth-wrapper .logo-left h2 {
+  color: #008c8c;
+  position: relative;
+  top: 31%;
+  margin-right: 65%;
+}
+
+.auth-wrapper .logo-left p {
+  margin-top: 10px;
+  padding-top: 10px;
+  font-size: 16px;
+  color: white;
+  position: relative;
+  top: 31%;
+}
+
+.auth-wrapper .logo-left span {
+  color: #487e9e;
+  font-size: 30px;
+  margin-right: 1%;
+}
+
+.auth-wrapper .auth-box {
+  padding: 20px;
+  width: calc(100% - 450px);
+  text-align: center;
+  position: relative;
+  display: block;
+  margin-left: 450px;
+}
+
+.auth-wrapper .auth-box .logo {
+  text-align: center;
+}
+
+.auth-wrapper .auth-box .changePswform {
+  position: fixed;
+  top: 200px;
+  margin: auto;
+  width: 320px;
+  left: 0;
+  right: 0;
+  text-align: left;
+}
+
+.auth-wrapper .auth-box .changePswform h3 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #212121;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.auth-wrapper .auth-box .changePswform .input-group label {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  color: #000;
+  font-weight: 400;
+}
+
+.auth-wrapper .auth-box .changePswform .input-group .form-control {
+  height: calc(2.5625rem + 2px);
+  color: black;
+}
+
+.auth-wrapper .auth-box .changePswform .form-group .custom-control {
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+.auth-wrapper .auth-box .changePswform .btn-block {
+  line-height: 2;
+  font-weight: 800;
+  background: #1e313e;
+  border-radius: 30px;
+  width: 130px;
+  margin: 0;
+}
+
+.auth-wrapper .auth-box .changePswform .float-left {
+  line-height: 2;
+  font-weight: 800;
+  background: #1e313e;
+  border-radius: 30px;
+  width: 130px;
+  margin-left: -100%;
+}
+
+.auth-wrapper .auth-box .loginform {
+  position: absolute;
+  top: 200px;
+  margin: auto;
+  width: 320px;
+  left: 0;
+  right: 0;
+  text-align: left;
+}
+
+.auth-wrapper .auth-box .loginform h3 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #212121;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.auth-wrapper .auth-box .loginform .input-group label {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  color: #000;
+  font-weight: 400;
+}
+
+.auth-wrapper .auth-box .loginform .input-group .form-control {
+  height: calc(2.5625rem + 2px);
+  color: black;
+}
+
+.auth-wrapper .auth-box .loginform .form-group .custom-control {
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+.auth-wrapper .auth-box .loginform .btn-block {
+  line-height: 2;
+  font-weight: 800;
+  background: #1e313e;
+  border-radius: 30px;
+  width: 130px;
+  margin: 0;
+}
+
+.auth-wrapper .auth-box .loginform .float-left {
+  line-height: 2;
+  font-weight: 800;
+  background: #1e313e;
+  border-radius: 30px;
+  width: 130px;
+  margin-left: -100%;
+}
+
+.auth-wrapper .signup-bottom {
+  position: fixed;
+  bottom: 20px;
+  width: calc(100% - 450px);
+  left: 450px;
+  text-align: center;
+}
+
+.auth-wrapper .signup-bottom .signup-btm-text {
+  display: inline-block;
+  width: 320px;
+}
+
+.auth-wrapper .signup-bottom .signup-btm-text a {
+  display: inline-block;
+  font-size: 14px;
+  color: #878787;
+  float: left;
+  margin-top: 5px;
+}
+
+.auth-wrapper .signup-bottom .signup-btm-text .btn-block {
+  width: 130px;
+  margin: 0;
+  border-radius: 30px;
+  background: transparent;
+  border: solid thin #1e313e;
+  color: #1e313e;
+  font-size: 14px;
+}
+
+.auth-wrapper #recoverform {
+  display: none;
+}
+
+.auth-wrapper .auth-sidebar {
+  position: fixed;
+  height: 100%;
+  right: 0px;
+  overflow: auto;
+  margin: 0px;
+  top: 0px;
+}
+
+@media (max-width: 767px) {
+  .auth-wrapper .logo-left {
+    display: none;
+  }
+  .auth-wrapper .auth-box.on-sidebar {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    top: 90px;
+    padding: 0;
+    margin: 0;
+  }
+  .auth-wrapper .auth-box.on-sidebar .loginform {
+    position: relative;
+    width: 100%;
+    top: 0;
+    right: 0;
+    padding: 30px 30px 0;
+  }
+  .auth-wrapper .auth-box.on-sidebar .loginform .btn-block {
+    margin-top: 20px;
+  }
+  .auth-wrapper .auth-box.on-sidebar .signup-bottom {
+    width: 100%;
+    left: 0;
+  }
+  .auth-wrapper .auth-sidebar {
+    position: relative;
+    max-width: 100%;
+    width: 100%;
+    margin: 0px 0 0px;
+    top: 200px;
+  }
+  .auth-wrapper .demo-text {
+    margin-top: 30px;
+  }
+}
+
+/*******************************/
+/*******************************/
+/*Theme Colors*/
+/*Topbar Colors*/
+/*Sidebar Colors*/
+/*Boxed layout width*/
+/*Shadow*/
+/*transitions*/
+/*Dark transparent bg*/
+/*******************************/
+/*******************************/
+/**
+ * Table Of Content
+ *
+ *  1. Color system
+ *  2. Options
+ *  3. Body
+ *  4. Typography
+ *  5. Breadcrumbs
+ *  6. Cards
+ *  7. Dropdowns
+ *  8. Buttons
+ *  9. Typography
+ *  10. Progress bars
+ *  11. Tables
+ *  12. Forms
+ *  14. Component
+ */
+.twitter-typeahead {
+  width: 100%;
+}
+
+.twitter-typeahead .tt-menu {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  padding: .75rem 0;
+}
+
+.twitter-typeahead .tt-menu .tt-suggestion {
+  padding: .25rem .75rem;
+  cursor: pointer;
+}
+
+.twitter-typeahead .tt-menu .tt-suggestion:hover {
+  background-color: #7460ee;
+  color: #fff;
+}
+
+.twitter-typeahead .empty-message {
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.twitter-typeahead .rtl-typeahead .tt-menu {
+  text-align: right;
+}
+
+.twitter-typeahead .league-name {
+  margin: 0 10px 5px;
+  padding: 7px 5px 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.scrollable-dropdown .twitter-typeahead .tt-menu {
+  max-height: 80px;
+  overflow-y: auto;
+}
+
+.bootstrap-maxlength {
+  margin-top: .5rem;
+}
+/*# sourceMappingURL=pages.css.map */
