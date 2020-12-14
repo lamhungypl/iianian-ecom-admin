@@ -67,6 +67,8 @@ export class ProductAddComponent implements OnInit, OnDestroy {
   public editId: any;
   // pagination
   public catagory: any;
+  // selected category list
+  public selectedCategories: any = [];
   // upload
   public uploadImage: any = [];
   public TotalCategories: any = [];
@@ -88,7 +90,12 @@ export class ProductAddComponent implements OnInit, OnDestroy {
   private addOneTime = false;
   // selected products in paroducts
   public selectedProducts: any = [];
+  // add product data
+  private totalArray: any = [];
   public addOneTimeData = false;
+  // search product
+  private searchKeyword: string;
+
   onetimeEdit = false;
   CategoryValue = false;
   // search product
@@ -331,6 +338,150 @@ export class ProductAddComponent implements OnInit, OnDestroy {
     param.sortOrder = '';
     param.status = 1;
     this.categoriessandbox.categorylist(param);
+  }
+  // calling product list api with default value
+
+  getProductLists() {
+    const params: any = {};
+    params.offset = '';
+    params.limit = '';
+    params.keyword = this.searchKeyword;
+    params.sku = '';
+    params.status = '';
+    params.price = '';
+    this.productSandbox.getProductList(params);
+  }
+  /**
+     * Handles  'searchCategory' event. Calls sandbox getCategoryList function.
+
+     * @param catagory searchCategory input value
+     */
+  searchCategory(event) {
+    this.catagory = event.target.value;
+    this.getCategoryList();
+  }
+
+  /**
+   * Handles  'selectCategory' event. Calls categoriessandbox Productremove  if (this.editId)function.
+   * else Calls categoriessandbox Productremove.And push  the datas to categories list using push() method.
+   * @param categoryId searchCategory input value
+   * @param name searchCategory input value
+   */
+  selectCategory(data, i) {
+    if (this.editId) {
+      const param: any = {};
+      param.categoryId = data.categoryId;
+      param.categoryName = data.name;
+      this.addOneTime = true;
+      this.selectedCategories.push(param);
+      this.categoriessandbox.Productremove(i);
+    } else {
+      this.selectedCategories.push(data);
+      this.categoriessandbox.Productremove(i);
+      this.show = false;
+    }
+    this.filteredArray = this.selectedCategories;
+  }
+
+  /**
+   * Handles  'removeCategory' event. Calls categoriessandbox Productadd  if (this.editId)function.
+   * else Calls categoriessandbox Productadd.And splice the datas with particular index as(i)
+   * @param categoryId searchCategory input value.
+   * @param name searchCategory input value.
+   */
+  removeCategory(data, i) {
+    if (this.editId) {
+      const param: any = {};
+      param.categoryId = data.categoryId;
+      param.name = data.categoryName;
+      this.addOneTime = true;
+      this.categoriessandbox.Productadd(param);
+      this.selectedCategories.splice(i, 1);
+    } else {
+      this.categoriessandbox.Productadd(data);
+      this.selectedCategories.splice(i, 1);
+    }
+    this.filteredArray = this.selectedCategories;
+  }
+
+  /** calls productSandbox productRemoveList,
+   * after pushing the product datas into selectedProducts(array)
+   * @param data from selectProduct
+   * @param i from selectProduct
+   * **/
+  selectProduct(data, i) {
+    if (this.editId) {
+      this.addOneTimeData = true;
+    }
+    this.selectedProducts.push(data);
+    if (this.selectedProducts) {
+    }
+    this.productSandbox.productRemoveList(i);
+  }
+
+  /**
+   * call productSandbox productAddList,after splice product datas in the list.
+   * @params data from removeProduct
+   * @param i from productAddList
+   * */
+  removeProduct(data, i) {
+    if (this.editId) {
+      this.addOneTimeData = true;
+      this.selectedProducts.splice(i, 1);
+      this.productSandbox.productAddList(data);
+    } else {
+      this.productSandbox.productAddList(data);
+      this.selectedProducts.splice(i, 1);
+    }
+  }
+
+  // calls getProductLists ,when  searching the  product list data
+  searchProduct(event) {
+    this.searchKeyword = event.target.value;
+    this.getProductLists();
+  }
+
+  // push the selected data into the totalArray(array).
+
+  addProductData() {
+    this.totalArray = [];
+    if (this.selectedProducts) {
+      for (let i = 0; i < this.selectedProducts.length; i++) {
+        if (this.selectedProducts[i] && this.selectedProducts[i].productId) {
+          this.totalArray.push(this.selectedProducts[i].productId);
+        }
+      }
+    }
+  }
+
+  /**
+   * Handles  'addSelecctedCategories' event.
+   *
+   * storing selectedCategories data in TotalCategories
+   */
+
+  addSelecctedCategories() {
+    if (this.show === true) {
+      this.selectedCategories = this.filteredArray;
+    }
+    this.TotalCategories = this.selectedCategories;
+  }
+
+  /**
+   * Handles  'searchSelectedCategory' event. And show the searched result  in the form
+   *
+   * @param filter searchbox  value
+   */
+  searchSelectedCategory(filter: String) {
+    this.filteredArray = this.selectedCategories.filter(item => {
+      if (item.name.toString().toLowerCase().indexOf(filter.toLowerCase()) !== -1) {
+        if (this.filteredArray != null) {
+          this.show = true;
+        }
+        return true;
+      }
+      return false;
+    });
   }
 
   // editing Product Form with product list values
