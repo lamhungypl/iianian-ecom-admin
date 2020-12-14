@@ -23,15 +23,21 @@ import { StockSandbox } from '../../../../../../../core/admin/settings/localizat
 })
 export class ProductAddComponent implements OnInit, OnDestroy {
   dropDownnArray: any = [];
+
   // reactive form
   public user: FormGroup;
   public sizeFormArray: FormArray;
+
+  public discountFormArray: FormArray;
+  public specialFormArray: FormArray;
+
   public productName: FormControl;
   public metaTagTitle: FormControl;
   public productDescription: FormControl;
   public upc: FormControl;
   public sku: FormControl;
   public selectedCategory: FormControl;
+
   public model: FormControl;
   public location: FormControl;
   public price: FormControl;
@@ -44,12 +50,18 @@ export class ProductAddComponent implements OnInit, OnDestroy {
   public status: FormControl;
   public sortOrder: FormControl;
   public condition: FormControl;
+  public textOptionValue: FormControl;
   public textRequired: FormControl;
+
+  public optionId: FormControl;
+  public discountId: FormControl;
+  public specialId: FormControl;
   // dateFormGroup
   public dataRequired: FormControl;
   public dateValue: FormControl;
   // checkboxFormgroup
   public checkboxRequired: FormControl;
+  public optionValueId: FormControl;
   public pricePrefix: FormControl;
   // size FormGroup
   public sizeBoxRequired: FormControl;
@@ -60,6 +72,21 @@ export class ProductAddComponent implements OnInit, OnDestroy {
 
   // textFormGroup
   public TextBoxRequired: FormControl;
+  // discountFormGroup Controls
+
+  public disCustomerGroup: FormControl;
+  public discountQuantity: FormControl;
+  public discountPriority: FormControl;
+  public discountPrice: FormControl;
+  public discountDateStart: FormControl;
+  public discountDateEnd: FormControl;
+
+  // specialFormGroup Controls
+  public specialCustomerGroup: FormControl;
+  public specialPriority: FormControl;
+  public specialPrice: FormControl;
+  public specialDateStart: FormControl;
+  public specialDateEnd: FormControl;
 
   public date: Date;
 
@@ -71,6 +98,7 @@ export class ProductAddComponent implements OnInit, OnDestroy {
   public selectedCategories: any = [];
   // upload
   public uploadImage: any = [];
+  // selectedCategories data in TotalCategories
   public TotalCategories: any = [];
   public filteredArray: any[];
   // product add or update api params
@@ -96,13 +124,21 @@ export class ProductAddComponent implements OnInit, OnDestroy {
   // search product
   private searchKeyword: string;
 
+  // condition for product add or update api
   onetimeEdit = false;
   CategoryValue = false;
   // search product
   private subscriptions: Array<Subscription> = [];
   public isFormActive: string;
 
+  public optionListArray: any = [];
+
   public updateproductdetails = [];
+  public discountFormArrayValue: any;
+  public specialFormArrayValue: any;
+
+  public productOptions: any = [];
+  public productDiscount: any = [];
 
   // ck editor
 
@@ -110,7 +146,16 @@ export class ProductAddComponent implements OnInit, OnDestroy {
   public ckeConfig: any;
   public mycontent: string;
   public log = '';
+
   @ViewChild('myckeditor') ckeditor: any;
+
+  // option form
+
+  public selected_optionId: FormControl;
+  public required: FormControl;
+  public optionValue: FormArray;
+  public rightOption: FormGroupName;
+  public options: FormGroupName;
 
   constructor(
     public fb: FormBuilder,
@@ -126,6 +171,10 @@ export class ProductAddComponent implements OnInit, OnDestroy {
   ) {
     this.mycontent = `<p>My html content</p>`;
     // this.initDropDownList();
+
+    this.getCategoryList();
+    this.getManufacturerList();
+    this.getProductLists();
     this.route.params.subscribe(data => {
       if (data) {
         this.editId = data['id'];
@@ -150,6 +199,7 @@ export class ProductAddComponent implements OnInit, OnDestroy {
     if (this.editId) {
       this.productSandbox.getProductDetail({ Id: this.editId });
       this.regDetailEvent();
+      // this.optionsArray.removeAt(0);
     } else {
       this.initDropDownList();
     }
@@ -178,15 +228,22 @@ export class ProductAddComponent implements OnInit, OnDestroy {
     this.upc = new FormControl('');
     this.sku = new FormControl('', [Validators.required]);
     this.selectedCategory = new FormControl('', [Validators.required]);
+
     this.model = new FormControl('', [Validators.required]);
     this.location = new FormControl('');
     this.price = new FormControl('', [Validators.required]);
+    this.minimumQuantity = new FormControl('');
+    this.quantity = new FormControl('', [Validators.required]);
+    this.subtractStock = new FormControl('');
     this.outOfStockStatus = new FormControl('', [Validators.required]);
     this.requiredShipping = new FormControl('', [Validators.required]);
+    this.requiredShipping = new FormControl('');
     this.dateAvailable = new FormControl('');
     this.status = new FormControl('', [Validators.required]);
     this.sortOrder = new FormControl('');
     this.condition = new FormControl('', [Validators.required]);
+    this.optionId = new FormControl('');
+    this.textOptionValue = new FormControl('');
     this.textRequired = new FormControl('');
     this.timeRequired = new FormControl('');
     this.timeValue = new FormControl('');
@@ -200,6 +257,9 @@ export class ProductAddComponent implements OnInit, OnDestroy {
     this.dateValue = new FormControl('');
     this.TextBoxRequired = new FormControl('');
 
+    this.discountId = new FormControl('');
+    (this.specialId = new FormControl('')), (this.TextBoxRequired = new FormControl(''));
+
     this.user = this.fb.group({
       productName: this.productName,
       metaTagTitle: this.metaTagTitle,
@@ -210,26 +270,59 @@ export class ProductAddComponent implements OnInit, OnDestroy {
       model: this.model,
       location: this.location,
       price: this.price,
+      minimumQuantity: this.minimumQuantity,
+      quantity: this.quantity,
+      subtractStock: this.subtractStock,
       outOfStockStatus: this.outOfStockStatus,
       requiredShipping: this.requiredShipping,
       dateAvailable: this.dateAvailable,
       status: this.status,
       sortOrder: this.sortOrder,
       condition: this.condition,
+      textOptionValue: this.textOptionValue,
       textRequired: this.textRequired,
       timeRequired: this.timeRequired,
       timeValue: this.timeValue,
       dateTimeRequired: this.dateTimeRequired,
       dateTimeValue: this.dateTimeValue,
+      optionId: this.optionId,
+      discountId: this.discountId,
+      specialId: this.specialId,
       dataRequired: this.dataRequired,
       dateValue: this.dateValue,
+
+      options: this.fb.group({
+        selected_optionId: this.selected_optionId,
+        rightOption: this.fb.array([]),
+      }),
+
       sizeForm: this.fb.group({
         sizeBoxRequired: this.sizeBoxRequired,
         sizeFormArray: this.fb.array([]),
       }),
+      discountForm: this.fb.group({
+        discountFormArray: this.fb.array([]),
+      }),
+      specialForm: this.fb.group({
+        specialFormArray: this.fb.array([]),
+      }),
     });
+
+    this.optionValue = this.user.controls['options'].get('rightOption') as FormArray;
+    this.discountFormArray = this.user.controls['discountForm'].get('discountFormArray') as FormArray;
+    this.discountFormArray.push(this.addDiscountField());
+    this.specialFormArray = this.user.controls['specialForm'].get('specialFormArray') as FormArray;
+    this.specialFormArray.push(this.addSpecialField());
+  }
+  // create control for FormArray of discountFormArray
+  get discountArray() {
+    return <FormArray>this.user.controls['discountForm'].get('discountFormArray');
   }
 
+  // create control for FormArray of specialFormArray
+  get specialArray() {
+    return <FormArray>this.user.controls['specialForm'].get('specialFormArray');
+  }
   selecttCategory(event, categoryList) {
     console.log('categoryList', categoryList);
     console.log('event', event);
@@ -258,6 +351,80 @@ export class ProductAddComponent implements OnInit, OnDestroy {
     this.stockStatusSandbox.stockStatusList(params);
   }
 
+  // create formaArray of discountFormArray
+
+  public addDiscountField() {
+    return this.fb.group({
+      disCustomerGroup: [''],
+      discountQuantity: [''],
+      discountPriority: [''],
+      discountPrice: [''],
+      discountDateStart: [''],
+      discountDateEnd: [''],
+    });
+  }
+
+  // create formArray of SpecialFormArray
+
+  public addSpecialField() {
+    return this.fb.group({
+      specialCustomerGroup: [''],
+      specialPriority: [''],
+      specialPrice: [''],
+      specialDateStart: [''],
+      specialDateEnd: [''],
+    });
+  }
+
+  // add discountForm
+  public addDiscountForm() {
+    this.discountArray.push(this.addDiscountField());
+  }
+
+  // remove discountForm
+  public deleteDiscountForm(index) {
+    this.discountArray.removeAt(index);
+  }
+
+  // add specialForm
+  public addSpecialForm() {
+    this.specialArray.push(this.addSpecialField());
+  }
+
+  // remove specialForm
+  public deleteSpecialForm(index) {
+    this.specialArray.removeAt(index);
+  }
+
+  // productoption data Formvalue
+  public setProductOptionFormData() {
+    this.discountFormArrayValue = this.user.controls.discountForm.get('discountFormArray').value.map(data => {
+      const strdate = new DatePipe('en-US').transform(data.discountDateStart, 'yyyy-MM-dd');
+      const enddate = new DatePipe('en-US').transform(data.discountDateEnd, 'yyyy-MM-dd');
+      return {
+        discountId: data.discountId,
+        disCustomerGroup: data.disCustomerGroup,
+        discountQuantity: data.discountQuantity,
+        discountPriority: data.discountPriority,
+        discountPrice: data.discountPrice,
+        discountDateStart: strdate,
+        discountDateEnd: enddate,
+      };
+    });
+    this.specialFormArrayValue = this.user.controls.specialForm.get('specialFormArray').value.map(value => {
+      const strdate = new DatePipe('en-US').transform(value.specialDateStart, 'yyyy-MM-dd');
+      const enddate = new DatePipe('en-US').transform(value.specialDateEnd, 'yyyy-MM-dd');
+      return {
+        specialId: value.specialId,
+        specialCustomerGroup: value.specialCustomerGroup,
+        specialPriority: value.specialPriority,
+        specialPrice: value.specialPrice,
+        specialDateStart: strdate,
+        specialDateEnd: enddate,
+      };
+    });
+  }
+
   /**
    * Handles  'onSubmit' event. Calls productSandbox doProductUpdate function if (this.editId) else
    * calls productSandbox doProductAdd function.
@@ -265,7 +432,16 @@ export class ProductAddComponent implements OnInit, OnDestroy {
    */
   onSubmit(user) {
     // calling
+    this.setProductOptionFormData();
+    // option array value
+
     this.submittedValues = true;
+    // if ((this.editId) && (this.addOneTime != true)) {
+    this.addSelecctedCategories();
+    // }
+    // if ((this.editId) && (this.addOneTimeData != true)) {
+    this.addProductData();
+    // }
     if (!this.user.valid) {
       this.validateAllFormFields(this.user);
       return;
@@ -278,9 +454,13 @@ export class ProductAddComponent implements OnInit, OnDestroy {
     this.param.sku = user.sku;
     this.param.image = this.uploadImage;
     this.param.categoryId = this.TotalCategories;
+    this.param.relatedProductId = this.totalArray;
     this.param.model = user.model;
     this.param.location = user.location;
     this.param.price = user.price;
+    this.param.minimumQuantity = user.minimumQuantity;
+    this.param.quantity = user.quantity;
+    this.param.subtractStock = user.subtractStock;
     this.param.outOfStockStatus = user.outOfStockStatus;
     this.param.requiredShipping = user.requiredShipping;
     this.param.dateAvailable = user.dateAvailable;
@@ -289,6 +469,9 @@ export class ProductAddComponent implements OnInit, OnDestroy {
     this.param.status = user.status;
     this.param.sortOrder = user.sortOrder;
     this.param.condition = user.condition;
+    this.param.productOptions = user.options.rightOption;
+    this.param.productDiscount = this.discountFormArrayValue;
+    this.param.productSpecial = this.specialFormArrayValue;
     if (this.editId) {
       this.param.productId = this.editId;
       this.productSandbox.doProductUpdate(this.param);
@@ -339,6 +522,7 @@ export class ProductAddComponent implements OnInit, OnDestroy {
     param.status = 1;
     this.categoriessandbox.categorylist(param);
   }
+
   // calling product list api with default value
 
   getProductLists() {
@@ -487,6 +671,7 @@ export class ProductAddComponent implements OnInit, OnDestroy {
   // editing Product Form with product list values
 
   editProductForm(productDetail) {
+    this.selectedCategories = productDetail.Category;
     this.changeDetectRef.detectChanges();
     this.updateproductdetails.push(productDetail);
     this.uploadImage = productDetail.productImage;
@@ -496,6 +681,9 @@ export class ProductAddComponent implements OnInit, OnDestroy {
     this.upc.setValue(productDetail.upc);
     this.price.setValue(productDetail.price);
     this.location.setValue(productDetail.location);
+    this.quantity.setValue(productDetail.quantity);
+    this.minimumQuantity.setValue(productDetail.minimumQuantity);
+    this.subtractStock.setValue(productDetail.subtractStock);
     this.outOfStockStatus.setValue(productDetail.stockStatusId);
     this.status.setValue(productDetail.isActive);
     this.model.setValue(productDetail.manufacturerId);
@@ -514,6 +702,50 @@ export class ProductAddComponent implements OnInit, OnDestroy {
     this.productDescription.setValue(productDetail.description);
     this.metaTagTitle.setValue(productDetail.metaTagTitle);
     this.condition.setValue(productDetail.condition);
+    // discount formarray bind value
+    if (productDetail.productDiscount.length > 0 && productDetail.productDiscount[0].productDiscountId) {
+      this.discountId.setValue(productDetail.productDiscount[0].productDiscountId);
+      const discountFormControl = <FormArray>this.user.controls['discountForm'].get('discountFormArray');
+      if (productDetail.productDiscount.length > 0) {
+        this.discountArray.removeAt(0);
+        productDetail.productDiscount.forEach(data => {
+          const tempstartDate = this.datePipe.transform(data.dateStart, 'yyyy-MM-dd');
+          const tempendDate = this.datePipe.transform(data.dateEnd, 'yyyy-MM-dd');
+          const tempPrice = parseInt(data.price, 10).toFixed(2);
+          discountFormControl.push(
+            this.fb.group({
+              discountId: data.productDiscountId,
+              disCustomerGroup: 1,
+              discountQuantity: data.quantity,
+              discountPriority: data.priority,
+              discountPrice: tempPrice,
+              discountDateStart: tempstartDate,
+              discountDateEnd: tempendDate,
+            })
+          );
+        });
+      }
+    }
+
+    // special formArray bind value
+    if (productDetail.productSpecialPrice.length > 0 && productDetail.productSpecialPrice[0].productSpecialId) {
+      const specialFormControl = <FormArray>this.user.controls['specialForm'].get('specialFormArray');
+      this.specialArray.removeAt(0);
+      productDetail.productSpecialPrice.forEach(value => {
+        const tempstartDate = this.datePipe.transform(value.dateStart, 'yyyy-MM-dd');
+        const tempendDate = this.datePipe.transform(value.dateEnd, 'yyyy-MM-dd');
+        specialFormControl.push(
+          this.fb.group({
+            specialId: value.productSpecialId,
+            specialCustomerGroup: 1,
+            specialPriority: value.priority,
+            specialPrice: value.price,
+            specialDateStart: tempstartDate,
+            specialDateEnd: tempendDate,
+          })
+        );
+      });
+    }
   }
 
   // getting values from media popup
