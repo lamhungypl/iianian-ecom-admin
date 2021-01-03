@@ -36,7 +36,7 @@ export class ProductAddComponent implements OnInit, OnDestroy {
   public productDescription: FormControl;
   public upc: FormControl;
   public sku: FormControl;
-  public selectedCategory: FormControl;
+  // public selectedCategory: FormControl;
 
   public model: FormControl;
   public location: FormControl;
@@ -227,14 +227,14 @@ export class ProductAddComponent implements OnInit, OnDestroy {
     this.productDescription = new FormControl('');
     this.upc = new FormControl('');
     this.sku = new FormControl('', [Validators.required]);
-    this.selectedCategory = new FormControl('', [Validators.required]);
+    // this.selectedCategory = new FormControl('', [Validators.required]);
 
     this.model = new FormControl('', [Validators.required]);
     this.location = new FormControl('');
     this.price = new FormControl('', [Validators.required]);
-    this.minimumQuantity = new FormControl('');
+    this.minimumQuantity = new FormControl(0);
     this.quantity = new FormControl('', [Validators.required]);
-    this.subtractStock = new FormControl('');
+    this.subtractStock = new FormControl('', [Validators.required]);
     this.outOfStockStatus = new FormControl('', [Validators.required]);
     this.requiredShipping = new FormControl('', [Validators.required]);
     this.requiredShipping = new FormControl('');
@@ -266,7 +266,7 @@ export class ProductAddComponent implements OnInit, OnDestroy {
       productDescription: this.productDescription,
       upc: this.upc,
       sku: this.sku,
-      selectedCategory: this.selectedCategory,
+      // selectedCategory: this.selectedCategory,
       model: this.model,
       location: this.location,
       price: this.price,
@@ -432,6 +432,8 @@ export class ProductAddComponent implements OnInit, OnDestroy {
    */
   onSubmit(user) {
     // calling
+    console.log('user', user, this.user);
+
     this.setProductOptionFormData();
     // option array value
 
@@ -687,11 +689,13 @@ export class ProductAddComponent implements OnInit, OnDestroy {
     this.outOfStockStatus.setValue(productDetail.stockStatusId);
     this.status.setValue(productDetail.isActive);
     this.model.setValue(productDetail.manufacturerId);
-    this.selectedCategory.setValue(productDetail.Category[0].categoryId);
+    // this.selectedCategory.setValue(productDetail.Category[0].categoryId);
     this.requiredShipping.setValue(productDetail.shipping);
-    if (productDetail && productDetail.stockStatusId) {
-      this.outOfStockStatus = productDetail.stockStatusId;
-    }
+
+    // if (productDetail && productDetail.stockStatusId) {
+    //   this.outOfStockStatus = productDetail.stockStatusId;
+    // }
+
     if (this.requiredShipping.value === 1) {
       this.user.patchValue({ requiredShipping: '1', tc: true });
     } else {
@@ -704,6 +708,8 @@ export class ProductAddComponent implements OnInit, OnDestroy {
     this.condition.setValue(productDetail.condition);
     // discount formarray bind value
     if (productDetail.productDiscount.length > 0 && productDetail.productDiscount[0].productDiscountId) {
+      console.log('productDetail.productDiscount', productDetail.productDiscount);
+
       this.discountId.setValue(productDetail.productDiscount[0].productDiscountId);
       const discountFormControl = <FormArray>this.user.controls['discountForm'].get('discountFormArray');
       if (productDetail.productDiscount.length > 0) {

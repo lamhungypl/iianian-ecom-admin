@@ -288,6 +288,60 @@
                   </div>
                 </div>
 
+                <!-- Col -->
+                <div class="data-col">
+                  <div class="form-group">
+                    <label>Quantity <sup>*</sup></label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="quantity"
+                      formControlName="quantity"
+                      [ngClass]="{
+                        validationcolor:
+                          user.get('quantity').hasError('required') &&
+                          user.get('quantity').touched &&
+                          submittedValues == true
+                      }"
+                    />
+
+                    <div
+                      class="error"
+                      *ngIf="
+                        user.get('quantity').hasError('required') &&
+                        user.get('quantity').touched &&
+                        submittedValues == true
+                      "
+                    >
+                      Quantity is required
+                    </div>
+                  </div>
+                </div>
+
+                <!--Col-->
+                <div class="data-col">
+                  <div class="form-group">
+                    <label>MinimumQuantity</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Minimum Quantity"
+                      formControlName="minimumQuantity"
+                    />
+                  </div>
+                </div>
+
+                <!--Col-->
+                <div class="data-col">
+                  <div class="form-group">
+                    <label>Subtract Stock</label>
+                    <select class="custom-select col-12" formControlName="subtractStock">
+                      <option value="">- -Select Subtract Stock- -</option>
+                      <option value="1">Yes</option>
+                      <option value="0">No</option>
+                    </select>
+                  </div>
+                </div>
                 <!--Col-->
                 <div class="data-col">
                   <div class="form-group">
