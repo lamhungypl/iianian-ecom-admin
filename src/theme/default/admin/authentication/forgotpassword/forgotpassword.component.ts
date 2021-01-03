@@ -3,7 +3,7 @@ import { Validators, FormGroup, FormControl, FormBuilder } from '@angular/forms'
 import { AuthSandbox } from '../../../../../core/admin/auth/auth.sandbox';
 
 @Component({
-  selector: 'app-spurt-forgot-password',
+  selector: 'app-iian-forgot-password',
   templateUrl: './forgotpassword.component.html',
   styleUrls: ['./forgotpassword.component.css'],
 })

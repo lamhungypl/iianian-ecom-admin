@@ -4,7 +4,7 @@ import { StockSandbox } from '../../../../../../../../core/admin/settings/locali
 import { StockService } from '../../../../../../../../core/admin/settings/localizations/stockStatus/stock.service';
 
 @Component({
-  selector: 'app-spurt-settings-stockstatus-list',
+  selector: 'app-iian-settings-stockstatus-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })

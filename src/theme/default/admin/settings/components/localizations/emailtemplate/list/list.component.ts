@@ -5,7 +5,7 @@ import { EmailTempSandbox } from '../../../../../../../../core/admin/settings/lo
 import { EmailTempService } from '../../../../../../../../core/admin/settings/localizations/emailtemplate/emailtemp.service';
 
 @Component({
-  selector: 'app-spurt-listemailtemp',
+  selector: 'app-iian-listemailtemp',
   templateUrl: 'list.component.html',
   styles: [
     `

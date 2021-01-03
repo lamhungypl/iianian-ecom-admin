@@ -8,7 +8,7 @@ import { ConfigService } from '../../../../../../../core/admin/service/config.se
 import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Component({
-  selector: 'app-spurt-cms-banner-list',
+  selector: 'app-iian-cms-banner-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
   encapsulation: ViewEncapsulation.None,

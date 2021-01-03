@@ -6,7 +6,7 @@ import { OrderstatusSandbox } from '../../../../../../../../core/admin/settings/
 import { OrderstatusApiClientService } from '../../../../../../../../core/admin/settings/localizations/orderstatus/orderstatus-ApiClientService';
 
 @Component({
-  selector: 'app-spurt-orderstatus-add',
+  selector: 'app-iian-orderstatus-add',
   templateUrl: './add.component.html',
   styles: [
     `

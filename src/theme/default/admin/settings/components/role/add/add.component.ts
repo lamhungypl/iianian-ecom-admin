@@ -6,7 +6,7 @@ import { RoleSandbox } from '../../../../../../../core/admin/settings/role/role.
 import { RoleApiClientService } from '../../../../../../../core/admin/settings/role/role.ApiClientService';
 
 @Component({
-  selector: 'app-spurt-settings-role-add',
+  selector: 'app-iian-settings-role-add',
   encapsulation: ViewEncapsulation.None,
   templateUrl: 'add.component.html',
   styles: [

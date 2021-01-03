@@ -11,7 +11,7 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class AdminComponent implements OnInit {
   public loader = false;
-  public title = 'Spurt Commerce';
+  public title = 'IIanian Commerce';
   public mylanguage: string;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object, private httpStatus: HTTPStatus) {

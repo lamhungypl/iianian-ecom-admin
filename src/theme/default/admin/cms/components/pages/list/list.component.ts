@@ -7,7 +7,7 @@ import { PagesApiclientService } from '../../../../../../../core/admin/cms/pages
 import { ToastrManager } from 'ng6-toastr-notifications';
 
 @Component({
-  selector: 'app-spurt-cms-page-list',
+  selector: 'app-iian-cms-page-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
   encapsulation: ViewEncapsulation.None,

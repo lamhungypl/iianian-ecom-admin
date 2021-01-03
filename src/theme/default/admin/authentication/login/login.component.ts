@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { AuthSandbox } from '../../../../../core/admin/auth/auth.sandbox';
 
 @Component({
-  selector: 'app-spurt-login',
+  selector: 'app-iian-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })

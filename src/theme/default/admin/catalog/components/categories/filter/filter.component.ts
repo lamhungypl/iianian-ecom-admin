@@ -3,7 +3,7 @@ import { CategoriesSandbox } from '../../../../../../../core/admin/catalog/categ
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-spurt-catalog-categories-filter',
+  selector: 'app-iian-catalog-categories-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss'],
 })

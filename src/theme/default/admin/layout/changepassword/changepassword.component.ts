@@ -3,7 +3,7 @@ import { Validators, FormGroup, FormControl, FormBuilder } from '@angular/forms'
 import { ChangepasswordSandbox } from '../../../../../core/admin/profile/changepassword/changepassword.sandbox';
 
 @Component({
-  selector: 'app-spurt-changepassword',
+  selector: 'app-iian-changepassword',
   templateUrl: './changepassword.component.html',
 })
 export class ChangePasswordComponent implements OnInit {

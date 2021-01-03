@@ -7,7 +7,7 @@
 .login {
   margin: auto;
   width: 85%;
-  background: url("assets/img/mask.svg") right no-repeat #eaeaea;
+  background: url('assets/img/mask.svg') right no-repeat #eaeaea;
   height: 530px;
   -o-object-fit: contain;
   object-fit: contain;
@@ -16,7 +16,7 @@
   border-radius: 10px;
 }
 
-.login .spurt-img {
+.login .iian-img {
   margin: auto;
   display: block;
   padding-top: 16%;
@@ -58,7 +58,7 @@
 
 .login .cards {
   -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
-          box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.15);
   background-color: #ffffff;
   width: 70%;
   margin: auto;
@@ -147,7 +147,7 @@
   .card-align {
     margin-top: 30% !important;
   }
-  .spurt-img {
+  .iian-img {
     margin: auto;
     display: block;
     padding-top: 23% !important;

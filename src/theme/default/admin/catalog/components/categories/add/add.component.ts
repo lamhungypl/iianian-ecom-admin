@@ -8,7 +8,7 @@ import { CategoriesService } from '../../../../../../../core/admin/catalog/categ
 import { ConfigService } from '../../../../../../../core/admin/service/config.service';
 
 @Component({
-  selector: 'app-spurt-catalog-category-add',
+  selector: 'app-iian-catalog-category-add',
   templateUrl: 'add.component.html',
   encapsulation: ViewEncapsulation.None,
   styleUrls: ['./add.component.scss'],

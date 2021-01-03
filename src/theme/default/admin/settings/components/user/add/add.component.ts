@@ -7,7 +7,7 @@ import { UserSandbox } from '../../../../../../../core/admin/settings/user/user.
 import { UserService } from '../../../../../../../core/admin/settings/user/user.service';
 
 @Component({
-  selector: 'app-spurt-settings-user-add',
+  selector: 'app-iian-settings-user-add',
   encapsulation: ViewEncapsulation.None,
   templateUrl: 'add.component.html',
   styles: [

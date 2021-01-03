@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-spurt-root',
+  selector: 'app-iian-root',
   templateUrl: './default.component.html',
 })
 export class DefaultComponent implements OnInit {
-  title = 'Spurt Commerce';
+  title = 'IIanian Commerce';
   public mylanguage: string;
 
   constructor() {}

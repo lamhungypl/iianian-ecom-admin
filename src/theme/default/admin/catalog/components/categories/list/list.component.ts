@@ -8,7 +8,7 @@ import { LayoutsSandbox } from '../../../../../../../core/admin/catalog/layout/l
 import { environment } from '../../../../../../../environments/environment';
 
 @Component({
-  selector: 'app-spurt-catalog-categories-list',
+  selector: 'app-iian-catalog-categories-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })

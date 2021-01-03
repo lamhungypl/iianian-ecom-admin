@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 import { ConfigService } from '../../../../../../../core/admin/service/config.service';
 
 @Component({
-  selector: 'app-spurt-genearlsettingsadd',
+  selector: 'app-iian-genearlsettingsadd',
   templateUrl: './generalsettings.component.html',
   styleUrls: ['./generalsettings.component.css'],
 })
