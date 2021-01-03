@@ -146,7 +146,17 @@
                   </div>
                   <!---->
                 </div>
-
+                <!--Col-->
+                <div class="data-col">
+                  <div class="form-group">
+                    <label>Newsletter</label>
+                    <select class="custom-select col-12" [(ngModel)]="newsletter" formControlName="newsletter">
+                      <option [ngValue]="undefined" selected>- -Select Newsletter- -</option>
+                      <option value="1">Enabled</option>
+                      <option value="0">Disabled</option>
+                    </select>
+                  </div>
+                </div>
                 <!--Col-->
                 <div class="data-col">
                   <div class="form-group">

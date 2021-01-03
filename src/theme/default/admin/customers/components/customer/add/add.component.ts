@@ -149,7 +149,7 @@ export class CustomerAddComponent implements OnInit {
         password: ['', this.conditionalValidator(() => this.update_CustId_PSW === true, Validators.required)],
         confirmpassword: ['', this.conditionalValidator(() => this.update_CustId_CPSW === true, Validators.required)],
         status: ['', [Validators.required]],
-        // newsletter: [''],
+        newsletter: [''],
         mailStatus: ['', [Validators.required]],
       },
       { validator: this.matchingPasswords('password', 'confirmpassword') }
@@ -215,7 +215,7 @@ export class CustomerAddComponent implements OnInit {
     }
     params.avatar = '';
     params.status = this.customerForm.value.status;
-    // params.newsletter = this.customerForm.value.newsletter;
+    params.newsletter = this.customerForm.value.newsletter;
     if (this.customerInfo && this.customerInfo[0].id) {
       params.id = this.customerInfo[0].id;
       this.appSandbox.updateCustomers(params);
@@ -233,6 +233,8 @@ export class CustomerAddComponent implements OnInit {
       this.update_CustId_PSW = false;
     } else {
     }
+    console.log('customer info', this.customerInfo);
+
     if (this.customerInfo && this.customerInfo[0]) {
       for (let i = 0; i < this.customerInfo.length; i++) {
         if (this.EditCustomerId) {
