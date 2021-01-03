@@ -5,7 +5,7 @@ import { AuthSandbox } from '../../../../../core/admin/auth/auth.sandbox';
 @Component({
   selector: 'app-spurt-forgot-password',
   templateUrl: './forgotpassword.component.html',
-  styleUrls: ['./forgotpassword.component.scss'],
+  styleUrls: ['./forgotpassword.component.css'],
 })
 export class ForgotPasswordComponent implements OnInit {
   // VARIABLES

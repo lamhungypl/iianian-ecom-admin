@@ -6,7 +6,7 @@ import { AuthSandbox } from '../../../../../core/admin/auth/auth.sandbox';
 @Component({
   selector: 'app-spurt-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
   // VARIABLES
@@ -22,8 +22,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-      username: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
-      password: ['', Validators.required],
+      username: ['admin@piart.com', [Validators.required, Validators.pattern(this.emailPattern)]],
+      password: ['cart123@', Validators.required],
     });
   }
 
