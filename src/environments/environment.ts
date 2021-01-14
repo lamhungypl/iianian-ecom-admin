@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
 
-  baseUrl: 'ec2-18-232-149-110.compute-1.amazonaws.com:8000/api',
-  imageUrl: 'ec2-18-232-149-110.compute-1.amazonaws.com:8000/api/media/image-resize',
+  baseUrl: 'http://ec2-18-232-149-110.compute-1.amazonaws.com:8000/api',
+  imageUrl: 'http://ec2-18-232-149-110.compute-1.amazonaws.com:8000/api/media/image-resize',
   productUrl: 'https://iianian-ecom-store.lamhungypl.vercel.app/#/',
   pluginUrl: '',
 };
