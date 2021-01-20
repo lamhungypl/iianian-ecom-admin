@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
 
-  baseUrl: 'http://localhost:8001/api',
-  imageUrl: 'http://localhost:8001/api/media/image-resize',
+  baseUrl: 'http://localhost:8000/api',
+  imageUrl: 'http://localhost:8000/api/media/image-resize',
   productUrl: 'https://iianian-ecom-store.lamhungypl.vercel.app/#/',
   pluginUrl: '',
 };
