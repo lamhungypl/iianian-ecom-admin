@@ -22,6 +22,7 @@ export class CategoryAddComponent implements OnInit {
   public categoryTitle: FormControl;
   public categoryDescription: FormControl;
   public categoryKeyword: FormControl;
+  public categoryComponent: FormControl;
   public categorySortOrder: FormControl;
   public status: FormControl;
   private valids: boolean;
@@ -91,6 +92,7 @@ export class CategoryAddComponent implements OnInit {
     this.categoryTitle = new FormControl('');
     this.categoryDescription = new FormControl('');
     this.categoryKeyword = new FormControl('');
+    this.categoryComponent = new FormControl('');
     this.categorySortOrder = new FormControl('', [Validators.required]);
     this.status = new FormControl('', [Validators.required]);
 
@@ -99,6 +101,7 @@ export class CategoryAddComponent implements OnInit {
       categoryTitle: this.categoryTitle,
       categoryDescription: this.categoryDescription,
       categoryKeyword: this.categoryKeyword,
+      categoryComponent: this.categoryComponent,
       categorySortOrder: this.categorySortOrder,
       status: this.status,
     });
@@ -135,7 +138,11 @@ export class CategoryAddComponent implements OnInit {
       return;
     }
     this.param.name = user.value.categoryName;
-    this.param.parentInt = 0;
+    if (user.value.categoryComponent) {
+      this.param.parentInt = user.value.categoryComponent;
+    } else {
+      this.param.parentInt = 0;
+    }
     this.param.sortOrder = user.value.categorySortOrder;
     this.param.metaTagTitle = user.value.categoryTitle;
     this.param.metaTagDescription = user.value.categoryDescription;
@@ -155,6 +162,7 @@ export class CategoryAddComponent implements OnInit {
     this.user.controls['categoryTitle'].setValue(this.CategoryEditdata.metaTagTitle);
     this.user.controls['categoryDescription'].setValue(this.CategoryEditdata.metaTagDescription);
     this.user.controls['categoryKeyword'].setValue(this.CategoryEditdata.metaTagKeyword);
+    this.user.controls['categoryComponent'].setValue(this.CategoryEditdata.parentInt);
     this.user.controls['categorySortOrder'].setValue(this.CategoryEditdata.sortOrder);
     this.status.setValue(this.CategoryEditdata.isActive);
   }
