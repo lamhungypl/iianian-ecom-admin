@@ -52,6 +52,7 @@
             </th>
             <th scope="col">Title</th>
             <th scope="col" width="100">Action</th>
+            <th class="text-center" scope="col" width="100px" class="text-center">Status</th>
           </tr>
         </thead>
         <tbody>
@@ -104,6 +105,18 @@
                     </button>
                   </div>
                 </div>
+              </ng-template>
+            </td>
+            <td class="text-center">
+              <div *ngIf="pagesList.isActive; else inActive">
+                <span style="width: 41px; background: #32b643; color: white; display: inline-block; padding: 1px 4px"
+                  ><b>Active</b></span
+                >
+              </div>
+              <ng-template #inActive>
+                <span style="background: #ea5738e6; color: white; width: 63px; display: inline-block; padding: 1px 4px"
+                  ><b>In-Active</b></span
+                >
               </ng-template>
             </td>
           </tr>

@@ -109,7 +109,7 @@ export class PagesAddComponent implements OnInit {
   initForm() {
     this.pageTitle = new FormControl('', [Validators.required]);
     this.pageContent = new FormControl('', [Validators.required]);
-    this.active = new FormControl('', [Validators.required]);
+    this.active = new FormControl('1', [Validators.required]);
     this.metaTitle = new FormControl('');
     this.metaKeyword = new FormControl('');
     this.metaContent = new FormControl('');
