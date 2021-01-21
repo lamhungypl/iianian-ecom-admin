@@ -88,6 +88,7 @@
               class="form-control"
               placeholder="sort Order"
               formControlName="sortOrder"
+              readonly
               [ngClass]="{
                 validationcolor:
                   brandForm.get('sortOrder').hasError('required') && brandForm.get('sortOrder').touched && submitted

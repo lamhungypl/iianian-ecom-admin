@@ -118,6 +118,7 @@
                       placeholder="Sort Order"
                       formControlName="categorySortOrder"
                       appOnlyNumber
+                      readonly
                       [ngClass]="{
                         validationcolor:
                           user.get('categorySortOrder').hasError('required') &&

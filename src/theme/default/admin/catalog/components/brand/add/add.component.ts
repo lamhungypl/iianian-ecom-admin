@@ -95,7 +95,7 @@ export class BrandAddComponent implements OnInit {
   loadForm() {
     this.name = new FormControl('', Validators.required);
     this.image = new FormControl('', Validators.required);
-    this.sortOrder = new FormControl('', Validators.required);
+    this.sortOrder = new FormControl('1', Validators.required);
     this.status = new FormControl('', Validators.required);
     this.brandForm = this.fb.group({
       name: this.name,

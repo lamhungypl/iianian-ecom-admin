@@ -93,7 +93,7 @@ export class CategoryAddComponent implements OnInit {
     this.categoryDescription = new FormControl('');
     this.categoryKeyword = new FormControl('');
     this.categoryComponent = new FormControl('');
-    this.categorySortOrder = new FormControl('', [Validators.required]);
+    this.categorySortOrder = new FormControl('1', [Validators.required]);
     this.status = new FormControl('', [Validators.required]);
 
     this.user = this.fb.group({
