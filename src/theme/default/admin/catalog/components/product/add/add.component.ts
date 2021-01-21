@@ -560,11 +560,11 @@ export class ProductAddComponent implements OnInit, OnDestroy {
       param.categoryId = data.categoryId;
       param.categoryName = data.name;
       this.addOneTime = true;
-      const newSelected = uniqBy(this.selectedCategories.concat(param), (cat: any) => cat.categoryId);
+      const newSelected = uniqBy(this.selectedCategories.concat(data), (cat: any) => cat.categoryId);
       this.selectedCategories = newSelected;
       this.categoriessandbox.Productremove(i);
     } else {
-      const newSelected = uniqBy(this.selectedCategories.concat(param), (cat: any) => cat.categoryId);
+      const newSelected = uniqBy(this.selectedCategories.concat(data), (cat: any) => cat.categoryId);
       this.selectedCategories = newSelected;
       this.categoriessandbox.Productremove(i);
       this.show = false;

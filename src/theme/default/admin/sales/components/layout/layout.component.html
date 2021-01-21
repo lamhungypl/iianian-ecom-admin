@@ -14,11 +14,11 @@
           </li>
           <li>
             <p>Total Orders Amount</p>
-            <h3>$ {{ (layoutSandbox.totalOrderAmount$ | async).toFixed(2) }}</h3>
+            <h3>{{ layoutSandbox.totalOrderAmount$ | async | currency: 'VND':'symbol-narrow' }}</h3>
           </li>
           <li>
             <p>Today's Orders Amount</p>
-            <h3>$ {{ (layoutSandbox.todayOrderAmount$ | async).toFixed(2) }}</h3>
+            <h3>{{ layoutSandbox.todayOrderAmount$ | async | currency: 'VND':'symbol-narrow' }}</h3>
           </li>
         </ul>
       </div>
