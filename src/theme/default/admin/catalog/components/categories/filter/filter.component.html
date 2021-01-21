@@ -1,14 +1,17 @@
 <form [formGroup]="filterForm">
   <div class="form-group">
     <label> Category Name</label>
-    <select class="custom-select col-12" id="inlineFormCustomSelect" formControlName="categoryNameList">
-      <option selected>Select</option>
-      <option *ngFor="let val of categoryListArray">{{ val.name }}</option>
-    </select>
+    <input
+      type="text"
+      formControlName="categoryNameList"
+      class="form-control"
+      id="Keyword"
+      placeholder="Enter Category Name"
+    />
   </div>
   <div class="form-group get">
     <label>Sort Order</label>
-    <select class="custom-select col-12" id="" formControlName="sortOrder">
+    <select class="custom-select col-12" id="" formControlName="sortOrder" disabled>
       <option value="">--Select--</option>
       <option value="1">Ascending</option>
       <option value="2">Descending</option>
