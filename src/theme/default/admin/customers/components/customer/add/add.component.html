@@ -33,7 +33,6 @@
               [ngClass]="{ 'is-invalid': submitted && f.customerGroup.errors }"
               formControlName="customerGroup"
             >
-              <option [ngValue]="undefined" selected>- -Select Customer Group- -</option>
               <option value="1">Default</option>
             </select>
             <div *ngIf="submitted && f.customerGroup.errors" class="invalid-feedback">
