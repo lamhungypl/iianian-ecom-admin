@@ -15,6 +15,7 @@ import { ConfigService } from '../../../../../../../core/admin/service/config.se
 import { DatePipe } from '@angular/common';
 import * as _ from 'lodash';
 import { StockSandbox } from '../../../../../../../core/admin/settings/localizations/stockStatus/stock.sandbox';
+import { uniqBy } from 'lodash';
 
 @Component({
   selector: 'app-add-products',
@@ -559,10 +560,12 @@ export class ProductAddComponent implements OnInit, OnDestroy {
       param.categoryId = data.categoryId;
       param.categoryName = data.name;
       this.addOneTime = true;
-      this.selectedCategories.push(param);
+      const newSelected = uniqBy(this.selectedCategories.concat(param), (cat: any) => cat.categoryId);
+      this.selectedCategories = newSelected;
       this.categoriessandbox.Productremove(i);
     } else {
-      this.selectedCategories.push(data);
+      const newSelected = uniqBy(this.selectedCategories.concat(param), (cat: any) => cat.categoryId);
+      this.selectedCategories = newSelected;
       this.categoriessandbox.Productremove(i);
       this.show = false;
     }
