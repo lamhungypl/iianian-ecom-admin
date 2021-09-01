@@ -44,9 +44,9 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle('Dashboard');
-    this.dashboardSandbox.getOrderListCount({ count: 1 });
-    this.dashboardSandbox.getProductListCount({ count: 1, status: 1 });
-    this.dashboardSandbox.getCustomerListCount({ count: 1, status: 1 });
+    this.dashboardSandbox.getOrderListCount({ count: true });
+    this.dashboardSandbox.getProductListCount({ count: true, status: 1 });
+    this.dashboardSandbox.getCustomerListCount({ count: true, status: 1 });
     this.dashboardSandbox.getTopSellingProductList();
     this.dashboardSandbox.getSalesOrderList();
     this.dashboardSandbox.getRecentVisitorList();

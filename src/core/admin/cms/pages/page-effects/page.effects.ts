@@ -77,8 +77,8 @@ export class PageEffects {
     switchMap(state => {
       return this.apiCli.Addpages(state).pipe(
         tap(response => {
-          this.appState.dispatch(new actions.GetActiveCount({ count: 1, status: 1 }));
-          this.appState.dispatch(new actions.GetInactiveCount({ count: 1, status: 1 }));
+          this.appState.dispatch(new actions.GetActiveCount({ count: true, status: 1 }));
+          this.appState.dispatch(new actions.GetInactiveCount({ count: true, status: 1 }));
         }),
         map(analysis => new actions.DoAddPagesSuccessAction(analysis)),
         catchError(error => of(new actions.DoAddPagesFailAction(error)))
@@ -94,8 +94,8 @@ export class PageEffects {
       const pageId = state.pageId;
       return this.apiCli.updatepages(state, pageId).pipe(
         tap(response => {
-          this.appState.dispatch(new actions.GetActiveCount({ count: 1, status: 1 }));
-          this.appState.dispatch(new actions.GetInactiveCount({ count: 1, status: 1 }));
+          this.appState.dispatch(new actions.GetActiveCount({ count: true, status: 1 }));
+          this.appState.dispatch(new actions.GetInactiveCount({ count: true, status: 1 }));
         }),
         map(analysis => new actions.DoUpdatepagesSuccessAction(new PagesupdateResponseModel(analysis))),
         catchError(error => of(new actions.DoUpdatepagesFailAction(error)))
@@ -111,8 +111,8 @@ export class PageEffects {
 
       return this.apiCli.deletepageslist(state, pageId).pipe(
         tap(response => {
-          this.appState.dispatch(new actions.GetActiveCount({ count: 1, status: 1 }));
-          this.appState.dispatch(new actions.GetInactiveCount({ count: 1, status: 1 }));
+          this.appState.dispatch(new actions.GetActiveCount({ count: true, status: 1 }));
+          this.appState.dispatch(new actions.GetInactiveCount({ count: true, status: 1 }));
         }),
         switchMap(user => [new actions.DoPagesDeleteSuccessAction(user)]),
         catchError(error => of(new actions.DoPagesDeleteFailAction(error)))
@@ -128,8 +128,8 @@ export class PageEffects {
     switchMap(state => {
       return this.apiCli.pagesBulkDelete(state).pipe(
         tap(response => {
-          this.appState.dispatch(new actions.GetActiveCount({ count: 1, status: 1 }));
-          this.appState.dispatch(new actions.GetInactiveCount({ count: 1, status: 0 }));
+          this.appState.dispatch(new actions.GetActiveCount({ count: true, status: 1 }));
+          this.appState.dispatch(new actions.GetInactiveCount({ count: true, status: 0 }));
         }),
         switchMap(user => [new actions.DoPagesBulkDeleteSuccess(user)]),
         catchError(error => of(new actions.DoPagesBulkDeleteFail(error)))

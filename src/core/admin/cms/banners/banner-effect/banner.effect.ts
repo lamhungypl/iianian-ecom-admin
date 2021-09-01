@@ -105,8 +105,8 @@ export class BannerEffect {
       }
       return this.service.updateBanner(state, Id).pipe(
         tap(response => {
-          this.appState.dispatch(new actions.DoBannerListActiveAction({ count: 1, status: 1 }));
-          this.appState.dispatch(new actions.DoBannerListInActiveAction({ count: 1, status: 0 }));
+          this.appState.dispatch(new actions.DoBannerListActiveAction({ count: true, status: 1 }));
+          this.appState.dispatch(new actions.DoBannerListInActiveAction({ count: true, status: 0 }));
         }),
         switchMap(user => [new actions.DoBannerUpdateSuccessAction(user)]),
         catchError(error => of(new actions.DoBannerUpdateFailAction(error)))
@@ -123,8 +123,8 @@ export class BannerEffect {
       const bannerId = state.bannerId;
       return this.service.deleteBanner(state, bannerId).pipe(
         tap(response => {
-          this.appState.dispatch(new actions.DoBannerListActiveAction({ count: 1, status: 1 }));
-          this.appState.dispatch(new actions.DoBannerListInActiveAction({ count: 1, status: 0 }));
+          this.appState.dispatch(new actions.DoBannerListActiveAction({ count: true, status: 1 }));
+          this.appState.dispatch(new actions.DoBannerListInActiveAction({ count: true, status: 0 }));
         }),
         map(update => new actions.DoBannerDeleteSuccessAction(update)),
         catchError(error => of(new actions.DoBannerDeleteFailAction(error)))
@@ -140,8 +140,8 @@ export class BannerEffect {
     switchMap(state => {
       return this.service.bannerBulkDelete(state).pipe(
         tap(response => {
-          this.appState.dispatch(new actions.DoBannerListActiveAction({ count: 1, status: 1 }));
-          this.appState.dispatch(new actions.DoBannerListInActiveAction({ count: 1, status: 0 }));
+          this.appState.dispatch(new actions.DoBannerListActiveAction({ count: true, status: 1 }));
+          this.appState.dispatch(new actions.DoBannerListInActiveAction({ count: true, status: 0 }));
         }),
         switchMap(user => [new actions.DoBannerBulkDeleteSuccess(user)]),
         catchError(error => of(new actions.DoBannerBulkDeleteFail(error)))

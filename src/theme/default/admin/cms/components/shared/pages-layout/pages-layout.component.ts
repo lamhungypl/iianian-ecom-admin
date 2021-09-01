@@ -13,8 +13,8 @@ export class PagesLayoutComponent implements OnInit {
     this.getPagesLists();
   }
   getPagesLists() {
-    this.pageSandbox.getPagePagination({ count: 1 });
-    this.pageSandbox.getActivePageCount({ count: 1, status: 1 });
-    this.pageSandbox.getInactivePageCount({ count: 1, status: 0 });
+    this.pageSandbox.getPagePagination({ count: true });
+    this.pageSandbox.getActivePageCount({ count: true, status: 1 });
+    this.pageSandbox.getInactivePageCount({ count: true, status: 0 });
   }
 }

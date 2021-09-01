@@ -14,8 +14,8 @@ export class BannerLayoutComponent implements OnInit {
   }
   // to get total count
   getBannerLists() {
-    this.sandbox.getBannerListCount({ count: 1 });
-    this.sandbox.getBannerListActive({ count: 1, status: 1 });
-    this.sandbox.getBannerListInActive({ count: 1, status: 0 });
+    this.sandbox.getBannerListCount({ count: true });
+    this.sandbox.getBannerListActive({ count: true, status: 1 });
+    this.sandbox.getBannerListInActive({ count: true, status: 0 });
   }
 }
